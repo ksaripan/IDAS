@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Driver Assistance</string>
+
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_vehicle">Vehicle</string>
+    <string name="title_history">History</string>
+    <string name="title_setting">Setting</string>
+    <string name="title_notification">Notification</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+
+</resources>
