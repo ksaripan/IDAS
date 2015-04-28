@@ -107,6 +107,10 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             int page = getArguments().getInt(ARG_SECTION_NUMBER);
+            if(page == 1) {
+                View rootView = inflater.inflate(R.layout.fragment_viewpage, container, false);
+                return rootView;
+            }
             if(page == 2) {
                 View rootView = inflater.inflate(R.layout.fragment_information, container, false);
                 return rootView;
