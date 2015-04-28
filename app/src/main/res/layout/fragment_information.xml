@@ -10,6 +10,7 @@
     android:background="#FF060031"
     tools:context=".MainActivity$PlaceholderFragment">
 
+    //Distance section
     <TextView
         android:id="@+id/topic_distance"
         android:layout_width="fill_parent"
@@ -20,41 +21,71 @@
         android:background="#a334576a" />
     <TextView
         android:id="@+id/subDis_total"
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:text="Total distance : 25,000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total distance : "
         android:textSize="16dp"
         android:textColor="#ffffff"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="5dp"
         android:layout_below="@+id/topic_distance"
         android:layout_alignParentStart="true" />
+    <EditText
+        android:id="@+id/textDis_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:textSize="16dp"
+        android:layout_marginLeft="10dp"
+        android:text="0 km"
+        android:layout_alignBaseline="@+id/subDis_total"
+        android:layout_toEndOf="@+id/subDis_total" />
     <TextView
         android:id="@+id/subDis_sinceStart"
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:text="Since engine start :  25 km"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Since engine start : "
         android:textSize="16dp"
         android:textColor="#ffffff"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_alignTop="@+id/subDis_total"
         android:layout_alignParentStart="true" />
+    <EditText
+        android:id="@+id/textDis_sinceStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:textSize="16dp"
+        android:layout_marginLeft="10dp"
+        android:text="0 km"
+        android:layout_alignBaseline="@+id/subDis_sinceStart"
+        android:layout_toEndOf="@+id/subDis_sinceStart" />
     <TextView
         android:id="@+id/subDis_time"
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:text="Time since engine start :  5 minutes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time since engine start : "
         android:textSize="16dp"
         android:textColor="#ffffff"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="40dp"
         android:layout_alignTop="@+id/subDis_total"
         android:layout_alignParentStart="true" />
+    <EditText
+        android:id="@+id/textDis_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:textSize="16dp"
+        android:layout_marginLeft="10dp"
+        android:text="0 minute"
+        android:layout_alignBaseline="@+id/subDis_time"
+        android:layout_toEndOf="@+id/subDis_time" />
 
 
 
-
+    //Energy section
     <TextView
         android:id="@+id/topic_energy"
         android:layout_width="fill_parent"
@@ -68,41 +99,71 @@
         android:layout_marginTop="30dp" />
     <TextView
         android:id="@+id/subEnergy_remain"
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:text="Remaining fuel : 75 %"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remaining fuel : "
         android:textSize="16dp"
         android:textColor="#ffffff"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="5dp"
         android:layout_below="@+id/topic_energy"
         android:layout_alignParentStart="true" />
+    <EditText
+        android:id="@+id/textEnergy_remain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:textSize="16dp"
+        android:layout_marginLeft="10dp"
+        android:text="75 %"
+        android:layout_alignBaseline="@+id/subEnergy_remain"
+        android:layout_toEndOf="@+id/subEnergy_remain" />
     <TextView
-        android:id="@+id/subEnergy_distace"
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:text="Remaining diatance :  255 km"
+        android:id="@+id/subEnergy_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remaining distance : "
         android:textSize="16dp"
         android:textColor="#ffffff"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_alignTop="@+id/subEnergy_remain"
         android:layout_alignParentStart="true" />
+    <EditText
+        android:id="@+id/textEnergy_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:textSize="16dp"
+        android:layout_marginLeft="10dp"
+        android:text="200 km"
+        android:layout_alignBaseline="@+id/subEnergy_distance"
+        android:layout_toEndOf="@+id/subEnergy_distance" />
     <TextView
         android:id="@+id/subEnergy_eco"
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:text="Fuel eco./con. :  13 km/hr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fuel eco./con. : "
         android:textSize="16dp"
         android:textColor="#ffffff"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="40dp"
         android:layout_alignTop="@+id/subEnergy_remain"
         android:layout_alignParentStart="true" />
+    <EditText
+        android:id="@+id/textEnergy_eco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:textSize="16dp"
+        android:layout_marginLeft="10dp"
+        android:text="13 km/l"
+        android:layout_alignBaseline="@+id/subEnergy_eco"
+        android:layout_toEndOf="@+id/subEnergy_eco" />
 
 
 
-
+    //Speed section
     <TextView
         android:id="@+id/topic_speed"
         android:layout_width="fill_parent"
@@ -116,29 +177,49 @@
         android:layout_marginTop="30dp" />
     <TextView
         android:id="@+id/subSpeed_max"
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:text="Max speed : 120 km/hr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Max speed : "
         android:textSize="16dp"
         android:textColor="#ffffff"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="5dp"
         android:layout_below="@+id/topic_speed"
         android:layout_alignParentStart="true" />
+    <EditText
+        android:id="@+id/textSpeed_max"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:textSize="16dp"
+        android:layout_marginLeft="10dp"
+        android:text="160 km/hr"
+        android:layout_alignBaseline="@+id/subSpeed_max"
+        android:layout_toEndOf="@+id/subSpeed_max" />
     <TextView
         android:id="@+id/subSpeed_time100"
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:text="Time speed (0 - 100 km/hr) :  15 s"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time speed (0 - 100 km/hr) : "
         android:textSize="16dp"
         android:textColor="#ffffff"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_alignTop="@+id/subSpeed_max"
         android:layout_alignParentStart="true" />
+    <EditText
+        android:id="@+id/textSpeed_time100"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:textSize="16dp"
+        android:layout_marginLeft="10dp"
+        android:text="15 sec"
+        android:layout_alignBaseline="@+id/subSpeed_time100"
+        android:layout_toEndOf="@+id/subSpeed_time100" />
 
 
-
+    //Temp section
     <TextView
         android:id="@+id/topic_Temp"
         android:layout_width="fill_parent"
@@ -152,25 +233,45 @@
         android:layout_marginTop="30dp" />
     <TextView
         android:id="@+id/subTemp_cool"
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:text="Coolant : 70 c"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Coolant : "
         android:textSize="16dp"
         android:textColor="#ffffff"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="5dp"
         android:layout_below="@+id/topic_Temp"
         android:layout_alignParentStart="true" />
+    <EditText
+        android:id="@+id/textTemp_cool"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:textSize="16dp"
+        android:layout_marginLeft="10dp"
+        android:text="70 c"
+        android:layout_alignBaseline="@+id/subTemp_cool"
+        android:layout_toEndOf="@+id/subTemp_cool" />
     <TextView
         android:id="@+id/subTemp_engine"
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:text="Engine :  93 c"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Engine : "
         android:textSize="16dp"
         android:textColor="#ffffff"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_alignTop="@+id/subTemp_cool"
         android:layout_alignParentStart="true" />
+    <EditText
+        android:id="@+id/textTemp_engine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:textSize="16dp"
+        android:layout_marginLeft="10dp"
+        android:text="90 c"
+        android:layout_alignBaseline="@+id/subTemp_engine"
+        android:layout_toEndOf="@+id/subTemp_engine" />
 
 </RelativeLayout>

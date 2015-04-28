@@ -111,6 +111,10 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
                 View rootView = inflater.inflate(R.layout.fragment_information, container, false);
                 return rootView;
             }
+            else if(page == 4){
+                View rootView = inflater.inflate(R.layout.fragment_setting, container, false);
+                return rootView;
+            }
             return null;
         }
 
