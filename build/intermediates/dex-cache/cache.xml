@@ -2,32 +2,32 @@
 <items version="2" >
 
     <item
-        jar="/Users/NEPUS/AndroidStudioProjects/DriverAssistance/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="/Users/NEPUS/AndroidStudioProjects/DriverAssistance/app/build/intermediates/pre-dexed/debug/classes-f1c48f7ae726fcfd58dcfa68db0120eca6272d08.jar" />
-    </item>
-    <item
-        jar="/Users/NEPUS/AndroidStudioProjects/DriverAssistance/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="/Users/NEPUS/AndroidStudioProjects/DriverAssistance/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-5512174b90fb1ff765bac326e2c5ae9b4a8d03a3.jar" />
-    </item>
-    <item
-        jar="/Users/NEPUS/AndroidStudioProjects/DriverAssistance/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="/Users/NEPUS/AndroidStudioProjects/DriverAssistance/app/build/intermediates/pre-dexed/debug/classes-2b24fdc75ca2a255fac2ebcf2357a7cad3f35b3d.jar" />
-    </item>
-    <item
-        jar="/Users/NEPUS/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
+        jar="/Users/AbS01ute/Documents/android-sdk-mac_x86/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="/Users/NEPUS/AndroidStudioProjects/DriverAssistance/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-caf2937d2772d910fd8172146664262d004e5b0a.jar" />
+        <dex dex="/Users/AbS01ute/AndroidStudioProjects/DriverAssistance/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-d2197325810ef539849feb71e7ab18f535b23ec1.jar" />
+    </item>
+    <item
+        jar="/Users/AbS01ute/AndroidStudioProjects/DriverAssistance/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="/Users/AbS01ute/AndroidStudioProjects/DriverAssistance/app/build/intermediates/pre-dexed/debug/classes-b82a8ad2d2bfa903cc10f0124f102ae557c585e6.jar" />
+    </item>
+    <item
+        jar="/Users/AbS01ute/AndroidStudioProjects/DriverAssistance/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="/Users/AbS01ute/AndroidStudioProjects/DriverAssistance/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-3ced4f680248b1febbf3ede50bd70784b119a491.jar" />
+    </item>
+    <item
+        jar="/Users/AbS01ute/AndroidStudioProjects/DriverAssistance/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/Users/AbS01ute/AndroidStudioProjects/DriverAssistance/app/build/intermediates/pre-dexed/debug/classes-85424c691fb8ffd2edcdeafc4ed9d81600b93dc9.jar" />
     </item>
 
 </items>
