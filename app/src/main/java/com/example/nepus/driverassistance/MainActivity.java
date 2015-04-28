@@ -108,7 +108,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
                                  Bundle savedInstanceState) {
             int page = getArguments().getInt(ARG_SECTION_NUMBER);
             if(page == 1) {
-                View rootView = inflater.inflate(R.layout.fragment_viewpage, container, false);
+                ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_viewpage, container, false);
                 return rootView;
             }
             if(page == 2) {
