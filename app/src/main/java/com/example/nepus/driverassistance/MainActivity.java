@@ -1,11 +1,18 @@
 package com.example.nepus.driverassistance;
 
 import android.app.Activity;
+import android.content.Context;
+import android.hardware.usb.UsbManager;
+import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Message;
+import android.os.SystemClock;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,12 +20,114 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 
+import com.hoho.android.usbserial.driver.UsbSerialDriver;
+import com.hoho.android.usbserial.driver.UsbSerialPort;
+import com.hoho.android.usbserial.driver.UsbSerialProber;
+import com.ic.kmitl.idas.datacontroller.AbstractDataController;
+import com.ic.kmitl.idas.datacontroller.DataControllerFactory;
+import com.ic.kmitl.idas.datacontroller.DataReceiver;
+
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MainActivity extends ActionBarActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
 
+    private static final String TAG = MainActivity.class.getSimpleName();
     private NavigationDrawerFragment navDrawerFrag;
     private CharSequence title;
+
+
+    private static final int MESSAGE_REFRESH = 101;
+    private static final long REFRESH_TIMEOUT_MILLIS = 5000;
+
+//    use mHandler to refresh device list periodically
+//    mHandler will be called from onResume and continue calling it self periodically
+    private final Handler mHandler = new Handler() {
+
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case MESSAGE_REFRESH:
+                    refreshDeviceList();
+                    mHandler.sendEmptyMessageDelayed(MESSAGE_REFRESH, REFRESH_TIMEOUT_MILLIS);
+                    break;
+                default:
+                    super.handleMessage(msg);
+                    break;
+            }
+        }
+
+    };
+//    call abstractDataController.sendData(data) to send data
+//    use below code to convert data from string to byte[]
+//    byte[] data = stringData.getBytes(Charset.forName("UTF-8"));
+//    call abstractDataController.isConnected() to check if the connection is established successfully
+    private AbstractDataController abstractDataController = null;
+
+//    DataReceiver of AbstractDataController
+    private DataReceiver dataReceiverListener = new DataReceiver() {
+        @Override
+        public void onDataReceive(byte[] data) {
+
+            String stringData = null;
+            try {
+                stringData = new String(data, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+
+            Log.i(TAG, stringData);
+
+        }
+    };
+
+
+    private void refreshDeviceList() {
+        new AsyncTask<Void, Void, List<UsbSerialPort>>() {
+            @Override
+            protected List<UsbSerialPort> doInBackground(Void... params) {
+                Log.d(TAG, "Refreshing device list ...");
+                SystemClock.sleep(1000);
+
+
+                UsbManager mUsbManager = (UsbManager) getSystemService(Context.USB_SERVICE);
+                final List<UsbSerialDriver> drivers =
+                        UsbSerialProber.getDefaultProber().findAllDrivers(mUsbManager);
+
+                final List<UsbSerialPort> result = new ArrayList<UsbSerialPort>();
+                for (final UsbSerialDriver driver : drivers) {
+                    final List<UsbSerialPort> ports = driver.getPorts();
+                    Log.d(TAG, String.format("+ %s: %s port%s",
+                            driver, Integer.valueOf(ports.size()), ports.size() == 1 ? "" : "s"));
+                    result.addAll(ports);
+                }
+
+                return result;
+            }
+
+            @Override
+            protected void onPostExecute(List<UsbSerialPort> result) {
+                if (result.isEmpty())
+                    return;
+
+
+                Log.i(TAG, result.toString());
+                if (result.size() == 1){
+
+                    abstractDataController = DataControllerFactory.createUsbDataController(MainActivity.this, result.get(0));
+                    abstractDataController.setDataReceiver(dataReceiverListener);
+                    abstractDataController.connect();
+
+                    mHandler.removeMessages(MESSAGE_REFRESH);
+                }
+
+            }
+
+        }.execute((Void) null);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +138,20 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 
         //Navigation drawer
         navDrawerFrag.setUp(R.id.navigation_drawer,(DrawerLayout)findViewById(R.id.drawer_layout));
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mHandler.sendEmptyMessage(MESSAGE_REFRESH);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mHandler.removeMessages(MESSAGE_REFRESH);
     }
 
     @Override
