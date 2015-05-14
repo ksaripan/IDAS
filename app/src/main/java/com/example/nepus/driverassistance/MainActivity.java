@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -84,7 +85,6 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 
         }
     };
-    private Fragment[] fragments;
 
 
     private void refreshDeviceList() {
@@ -131,11 +131,6 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
         }.execute((Void) null);
     }
 
-    public MainActivity() {
-        fragments = new Fragment[5];
-        fragments[0] = new TestFragment();
-        fragments[1] = new TestFragment2();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,10 +141,6 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 
         //Navigation drawer
         navDrawerFrag.setUp(R.id.navigation_drawer,(DrawerLayout)findViewById(R.id.drawer_layout));
-
-
-
-
     }
 
     @Override
@@ -164,7 +155,12 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
         mHandler.removeMessages(MESSAGE_REFRESH);
     }
 
+    private Fragment [] fragments;
 
+    public MainActivity() {
+        fragments = new Fragment[5];
+        fragments[0] = new SystemPagerFragment();
+    }
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
@@ -173,13 +169,15 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 
         // crate fragment to place page
         FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.container, fragments[position]).commit();
+
 //        if (placeholderFragment == null)
 //            placeholderFragment = new PlaceholderFragment();
 ////        fragmentManager.beginTransaction()
 ////                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
 ////                .commit();
 //        fragmentManager.beginTransaction().replace(R.id.container, placeholderFragment.newInstance(position + 1)).commit();
-        fragmentManager.beginTransaction().replace(R.id.container, fragments[position]).commit();
+
     }
 
     public void onSectionAttached(int number) {
