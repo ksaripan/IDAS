@@ -21,7 +21,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-//https://developer.android.com/design/patterns/navigation-drawer.html#Interaction
 
 public class NavigationDrawerFragment extends Fragment {
 
@@ -89,7 +88,7 @@ public class NavigationDrawerFragment extends Fragment {
                         getString(R.string.title_vehicle),
                         getString(R.string.title_history),
                         getString(R.string.title_setting),
-                        "Notification",
+                        getString(R.string.title_notification),
                 }));
         drawerListView.setItemChecked(curPosition, true);
         return drawerListView;
