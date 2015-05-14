@@ -10,16 +10,16 @@ import android.view.ViewGroup;
 /**
  * Created by NEPUS on 5/12/15 AD.
  */
-public class TestFragment extends Fragment {
-    public TestFragment() {
+public class TestFragment2 extends Fragment {
+    public TestFragment2() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_information, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_setting, container, false);
+
         return rootView;
     }
-
 
 }
